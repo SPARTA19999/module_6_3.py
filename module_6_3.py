@@ -3,7 +3,6 @@ class Horse:  #Класс описывающий лошадь
     def __init__(self):
         self.x_distance = 0  #путь
         self.sound = 'Frrr'   #звук лошади
-        super().__init__()
     def run(self, dx):
         self.x_distance += dx   #увеличивает путь на dx
 
@@ -17,7 +16,8 @@ class Eagle:    #Класс орла
 
 class Pegasus(Horse, Eagle):    #Класс Пегаса
     def __init__(self):
-        super().__init__()
+        Horse.__init__(self)
+        Eagle.__init__(self)
 
     def move(self, dx, dy):  #изменение дистанции
         super().run(dx)
